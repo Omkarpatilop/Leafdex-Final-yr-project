@@ -92,7 +92,7 @@ class PlantsAPI {
 
   Future<MedicinalProperties> getMedicinalProperties(String plantName) async {
     print(plantName);
-    var uri = Uri.parse('http://192.168.1.205:5000/leaf-info');
+    var uri = Uri.parse('https://leafdex-api123.onrender.com/leaf-info');
     var client = http.Client();
     print(plantName);
     final http.Response response123 = await client.post(
@@ -104,8 +104,11 @@ class PlantsAPI {
         'scientific_name': plantName,
       }),
     );
+    print(response123.statusCode);
+    print(response123.body);
+    print(json.decode(response123.body).runtimeType);
     if (response123.statusCode == 200) {
-      return json.decode(response123.body);
+      return MedicinalProperties.fromJson(json.decode(response123.body));
     } else {
       throw Exception('Failed to load medicinal properties');
     }

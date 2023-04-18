@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: kPrimaryColor,
         elevation: 0,
         /*actions: [
           GestureDetector(

@@ -107,7 +107,7 @@ class PlantNameWidget extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) =>  MedicinalPropertiesScreen(
-              plantName: 'plantName',
+              plantName: plant!.plantName,
             ),
           ),
         );

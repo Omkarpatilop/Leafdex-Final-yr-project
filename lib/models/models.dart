@@ -41,13 +41,25 @@ class Plant {
 }
 
 class MedicinalProperties {
-  final String commonName;
-  final String description;
-  final String medicinalProperties;
+  String? commonName;
+  String? description;
+  String? medicinalProperties;
 
-  MedicinalProperties({
-    required this.commonName,
-    required this.description,
-    required this.medicinalProperties,
-  });
+  MedicinalProperties(
+      {this.commonName, this.description, this.medicinalProperties});
+
+  MedicinalProperties.fromJson(Map<String, dynamic> json) {
+    commonName = json['common_name'];
+    description = json['description'];
+    medicinalProperties = json['medicinal_properties'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data =  <String, dynamic>{};
+    data['common_name'] = commonName;
+    data['description'] = description;
+    data['medicinal_properties'] = medicinalProperties;
+    return data;
+  }
 }
+
